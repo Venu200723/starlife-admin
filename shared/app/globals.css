@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-error-soft: var(--error-soft);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* STAR LIFE CLINIC — professional healthcare palette */
+  --radius: 0.75rem;
+  --background: #f4f7f7;
+  --foreground: #10201f;
+  --card: #ffffff;
+  --card-foreground: #10201f;
+  --popover: #ffffff;
+  --popover-foreground: #10201f;
+  --primary: #0f766e; /* deep medical teal */
+  --primary-foreground: #ffffff;
+  --secondary: #e7f2f0; /* soft teal tint */
+  --secondary-foreground: #0b5d57;
+  --muted: #edf2f2;
+  --muted-foreground: #5c6f6d;
+  --accent: #e7f2f0;
+  --accent-foreground: #0b5d57;
+  --destructive: #dc2626;
+  --success: #15803d;
+  --success-foreground: #ffffff;
+  --success-soft: #e8f5ec;
+  --warning: #b45309;
+  --warning-foreground: #ffffff;
+  --warning-soft: #fdf3e3;
+  --error-soft: #fdecec;
+  --border: #e2eaea;
+  --input: #d5e0e0;
+  --ring: #14b8a6;
+  --chart-1: #0f766e;
+  --chart-2: #14b8a6;
+  --chart-3: #f59e0b;
+  --chart-4: #15803d;
+  --chart-5: #64748b;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #10201f;
+  --sidebar-primary: #0f766e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e7f2f0;
+  --sidebar-accent-foreground: #0b5d57;
+  --sidebar-border: #e2eaea;
+  --sidebar-ring: #14b8a6;
+}
+
+.dark {
+  --background: #10201f;
+  --foreground: #f4f7f7;
+  --card: #16302d;
+  --card-foreground: #f4f7f7;
+  --popover: #16302d;
+  --popover-foreground: #f4f7f7;
+  --primary: #14b8a6;
+  --primary-foreground: #06211e;
+  --secondary: #1d3c38;
+  --secondary-foreground: #c9ece8;
+  --muted: #1d3c38;
+  --muted-foreground: #8fb0ac;
+  --accent: #1d3c38;
+  --accent-foreground: #c9ece8;
+  --destructive: #ef4444;
+  --border: #234641;
+  --input: #234641;
+  --ring: #14b8a6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #c3d4d2;
+    border-radius: 999px;
+  }
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .brand-gradient {
+    background: linear-gradient(135deg, #0a5750 0%, #0f766e 55%, #14957f 100%);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2.2s ease-in-out infinite;
+}

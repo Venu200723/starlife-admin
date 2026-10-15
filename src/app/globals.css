@@ -1,0 +1,5 @@
+/* Admin site styling — reuses the shared design system from the patient app
+   and tells Tailwind to scan the shared source tree for class names. */
+@import "../../shared/app/globals.css";
+@source "../../shared";
+@source "../";
